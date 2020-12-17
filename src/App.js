@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { About, Main, News, NotFound, Product, Staff } from './Main';
+import NavMenu from './NavMenu';
 
 function App() {
+  let artist={
+    name:"Pablo",
+    surname:"Picasso"
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <NavMenu></NavMenu>
+        <Switch>
+            <Route exact path="/" component={Main}></Route>
+          {/* <Route exact path="/" component={Main}></Route>
+          <Route path="about" component={About}></Route>
+          <Route strict path="/news" component={News}></Route>
+          <Route path="/staff/:departmen?/:id?" component={Staff}></Route>
+          <Route path="/products/:id?(\d+)" component={Product}></Route>
+          <Route children={()=><h2>Not found from arrow function</h2>}></Route> */}
+          <Route exact path="/" component={Main}></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

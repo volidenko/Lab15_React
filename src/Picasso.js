@@ -16,4 +16,5 @@ export function BestPicture() {
             <h2>Best Picture</h2>
             <img src={img1}></img>
         </>
+    )
 }
